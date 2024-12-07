@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}
+Search
+
+{% endblock title %}
+{% block hero %}
+
+<h1>Welcome To Search Page</h1>
+<p>This Blog gives<span class="typed"
+        data-typed-items="Technical Knowledge,Information on website,Nature,Sports"></span></p>
+
+
+{% endblock hero %}
+
+{% block body %}
+
+
+<br><br>
+
+{% for message in messages %}
+        
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        
+        
+        
+{% endfor %}
+
+{% if data|length < 1 %}
+
+<h1>Your Search did not match.... </h1>
+
+{% else %}
+
+
+
+
+{% endif %}
+
+
+
+
+<div class="row">
+
+
+    {% for d in data reversed %}
+
+    <div class="col-md-4">
+        
+
+
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{d.image.url}}" class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>{{d.title}}</b></h5>
+                        <p class="card-text">{{d.description}}</p>
+                        <p class="card-text"><small class="text-body-secondary"><b>Last
+                                    updated:</b>{{d.timeStamp}}</small></p>
+                        <p class="card-text"><small class="text-body-secondary"><b>Uploaded
+                                    By:</b>{{d.authorName}}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    {% endfor %}
+</div>
+
+{% endblock body %}

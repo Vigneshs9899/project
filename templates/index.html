@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+
+{% endblock title %}
+{% block hero %}
+<h1>Vignesh S</h1>
+<p>I'm <span class="typed" data-typed-items="Developer, Freelancer"></span></p>
+
+{% for message in messages %}
+
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong>{{message}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+
+{% endfor %}
+<div class="social-links">
+  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+  <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+  <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+  <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+  <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+</div>
+{% endblock hero %}
+
+{% block body %}
+<br><br><br>
+<h1>Welcome {{user.first_name}}</h1>
+
+<hr>
+<div class="row">
+
+  <h1 class="text-center">Skills</h1>
+  <hr>
+
+  {% for i in data %}
+
+  <div class="col-md-3">
+
+    <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+      <div class="card-header">{{i.skill}}</div>
+      
+    </div>
+
+  </div>
+
+  {% endfor %}
+
+</div>
+<br><br><br><br><br><br><br><br>
+<h5 class="text-center bg-dark text-light p-2">Developed By V</h5>
+{% endblock body %}
