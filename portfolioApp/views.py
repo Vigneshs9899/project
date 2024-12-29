@@ -23,7 +23,7 @@ def contact(request):
         email=request.POST['email']
         phone=request.POST['num']
         desc=request.POST['desc']
-        if len(phone)>10 or len(phone<10):
+        if len(phone) > 10 or len(phone) < 10:
             messages.warning(request,"Please Enter 10 digit Number")
             return redirect("/contact")
         query=Contact(name=name,email=email,phone=phone,description=desc)
